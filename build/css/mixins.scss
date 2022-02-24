@@ -1,0 +1,32 @@
+@mixin buttonStyle {
+    transition: all .3s ease;
+    background: $color2;
+    outline: none;
+    color: $white;
+    border: solid 2px #222; 
+    font-weight: 300;
+    letter-spacing: 2px;
+    font-family: $main2;
+    padding: 0.7rem 2rem;
+    border: none;
+    font-weight: 400;
+    border-radius: 5px; 
+
+
+    &:hover {
+            transition: all .3s ease;
+            background: $color2; 
+            color: #fff;
+            opacity: 0.8;
+            cursor: pointer;
+            transform: translateY(-10px); 
+            color: $white;  
+    }
+}
+
+
+@mixin sectionTitle($title-color) {
+    font-size: 3vw;
+    color: $title-color;
+}
+
