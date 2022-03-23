@@ -8,6 +8,22 @@
     scroll-behavior: smooth;
 }
 
+/* width */
+::-webkit-scrollbar {
+    width: 15px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: $color1;
+    border-radius: 3px;
+  }
+
 
 .to-top-btn {
     transition: all .4s ease;
@@ -455,6 +471,18 @@ hr {
         width: 50%;
     }
 
+    .agenda-right-data {
+        color: #d2feff;
+        margin-left: .5rem;
+    }
+
+    .agenda-session-title {
+        display: flex;
+        align-items: center;
+        line-height: 1.2;
+        padding-right: 10px;
+    }
+
     .agenda-speaker {
         display: flex;
         justify-content: flex-start;
@@ -469,10 +497,18 @@ hr {
         font-size: 30px;
     }
 
+    .agenda-speaker-bio {
+        font-family: $main2;
+        font-size: 1.1rem;
+        line-height: 1.5;
+        padding-right: 30px;
+    }
+
     .agenda-catagories {
-        font-size: 47px;
+        color: $color2;
+        font-family: $main;
+        font-size: 3.5rem;
         text-align: center;
-        color: $color1;
         padding: 30px 0 30px 0;
     }
 
@@ -482,7 +518,8 @@ hr {
     }
 
     .agenda-details {
-        padding-left: 30px;
+        // padding-left: 30px;
+        margin: 10px 0;
     }
 
     .agenda-time {
@@ -492,28 +529,46 @@ hr {
     }
 
     .agenda-time-box {
-        padding: 0.5rem 2rem;
+        transition: all 0.3s ease;
+        padding: .5rem 1rem;
         background: $color2;
         color: $white;
-        border-radius: 10px;
+        border-radius: 5px;
         margin-bottom: 10px;
-        margin-right: 10px;
+        margin-right: 20px;
     }
 
 
     .talk {
+        transition: all 0.3s ease;
         line-height: 40px;
-        padding: 30px 0 30px 50px;
-        border-bottom: solid 2px $color2;
+        padding: 20px 0 20px 50px;
+        border-bottom: solid 1px $color2;
         text-align: left;
         width: 40vw;
     }
 
+    .divider {
+        padding: 60px 0 60px 50px;
+        border: none;
+    }
+
     .talk:hover {
         transition: all 0.3s ease;
-        background: #222;
         cursor: pointer;
     }
+
+    .networking-break {
+        background: #35c4d1; 
+        color: white;
+
+        .agenda-time-box {
+            background: $color4;
+            color: $color1;
+        }
+    }
+
+
 
 
 
@@ -538,13 +593,13 @@ hr {
     }
 
     .agenda-title {
-        font-size: 4rem;
+        font-size: 5rem;
         color: $color1;
         text-transform: uppercase;
     }
 
     .agenda-subtitle {
-        font-size: 2.5rem;
+        font-size: 4rem;
         color: $color2;
     }
 
@@ -553,6 +608,7 @@ hr {
         width: 70%;
         font-size: 20px;
         font-family: $main2;
+        opacity: 0;
     }
 
     .btn {
@@ -602,17 +658,33 @@ hr {
     .speakers-cards {
         padding: 20px;
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
+        gap: 1.6rem;
     }
 
     .card {
         transition: all 0.4s ease;
         position: relative;
-        width: 325px;
+        width: 400px;
         overflow: hidden;
         border: solid 2px $color2;
         box-shadow: 0 0 20px $color1;
         border-radius: 5px;
+        font-family: $main2;
+
+        .keynote-text {
+            transition: all .6s ease;
+            position: absolute;
+            border-bottom-left-radius: 10px;
+            background: $color2;
+            top: 0;
+            right: 0;
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 1.3rem;
+            display: inline-block;
+            font-family: $main2;
+        }
 
         &:hover>.card-text {
             transition: all 0.4s ease;
@@ -623,13 +695,21 @@ hr {
 
         &:hover>.card-text .card-description {
             display: block;
+            overflow-y: scroll;
+        }
+
+        &:hover > .keynote-text {
+            transition: all .3s ease;
+            opacity: 0;
         }
     }
+
 
     .card img {
         display: block;
         width: 100%;
         height: 100%;
+        object-fit: cover;
     }
 
     .card-text {
@@ -651,11 +731,12 @@ hr {
 
         .card-name {
             color: $color2;
-            font-size: 40px;
+            font-size: 30px;
         }
 
         .card-job-title {
-            font-size: 28px;
+            font-size: 20px;
+            margin-bottom: 10px;
         }
 
         .card-description {
@@ -663,7 +744,7 @@ hr {
             padding: 20px;
             display: none;
             font-family: $main2;
-            font-size: 15px;
+            font-size: 20px;
         }
     }
 
@@ -752,10 +833,18 @@ hr {
             align-items: center;
 
             .sponsor-logo {
+                transition: all .3s ease;
                 width: 320px;
                 border: solid 5px $color2;
                 border-radius: 10px;
                 margin: 10px 30px 10px 0;
+
+                &:hover {
+                    transition: all .3s ease;
+                    border-color: $color3;
+                    cursor: pointer;
+                    transform: scale(1.05);
+                }
             }
         }
 
@@ -1250,10 +1339,22 @@ hr {
             z-index: 1;
         }
 
+        .agenda-session-title {
+            flex-direction: column;
+            line-height: 1.2;
+            padding-right: 0px;
+        }
+
         .agenda-speaker {
             width: 80%;
             margin: 0 auto;
-            padding-left: 15px;
+            display: block;
+            text-align: center;
+            padding: 0;
+        }
+
+        .agenda-speaker-bio {
+            padding-right: 0px;
         }
 
 
@@ -1261,12 +1362,14 @@ hr {
         .talk {
             width: 100vw;
             text-align: center;
-            padding: 40px 0 20px 0;
+            padding: 20px;
 
 
             .agenda-time-box {
                 font-size: 20px;
-                padding: 10px 20px;
+                display: block;
+                margin: 0 auto 20px auto;
+                width: 100px;
             }
         }
 
@@ -1282,7 +1385,7 @@ hr {
         }
 
         .sticky-container {
-            padding: 70px 0;
+            padding: 0 0 20px 0;
         }
 
         .agenda-title {
@@ -1294,8 +1397,12 @@ hr {
         }
 
         .agenda-description {
-            line-height: 30px;
-            width: 100%;
+            display: none;
+        }
+
+        .agenda-catagories {
+            font-size: 3rem;
+            padding: 40px;
         }
 
 
@@ -1306,6 +1413,10 @@ hr {
             display: none;
         }
     }
+
+
+
+
 
 
     #speakers {
